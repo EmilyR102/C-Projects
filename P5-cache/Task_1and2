@@ -1,0 +1,18 @@
+
+    A=2, B=64B, C=32KB=2^15B, Address = 32 bits
+    Every log is log2
+
+    Number of offset bits in the address = log(B) 
+    = log(64) = 6 bits
+    
+    Number of sets in the cache = lines/ways = C/BA 
+    = 2^9/2 = 2^8 sets
+    
+    Total number of cache lines in the cache = Cache Size / BlockSize = C/B 
+    = 2^9 lines
+
+    Number of index bits in the address = log(sets) = log2(C/BA) 
+    = log(2^8) = 8 bits
+
+    Number of tag bits in the address = Address - (index + offset) = 32 - (log(C/BA) + log(B)) 
+    = 32 - (8+6) = 18 bits

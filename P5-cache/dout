@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+make p5
+echo -e "\nDirect-Mapped\n"
+./p5 -t hmmer.2k.txt -cache 9 5 1 > dmap.txt
+diff --side-by-side dmap.txt dmap_san.txt
+
+echo -e "\n2 Set-Associative\n"
+./p5 -t hmmer.2k.txt -cache 12 6 2 > 2set.txt
+diff --side-by-side 2set.txt 2set_san.txt
+
+echo -e "\n4 Set-Associative\n"
+./p5 -t hmmer.2k.txt -cache 16 4 4 > 4set.txt
+diff --side-by-side 4set.txt 4set_san.txt
